@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Escape</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">NO ESCAPE</div>
+        <h1 id="story">You wake up in a dark, secluded forest. A voice whispers: "Do you want to live?"</h1>
+        <div class="buttons" id="choiceButtons">
+            <button onclick="makeChoice('yes')">Yes</button>
+            <button onclick="makeChoice('no')">No</button>
+        </div>
+        <div class="retry-container">
+            <button id="retryButton" onclick="restartGame()">Try Again</button>
+        </div>
+        <img id="deathGif" src="images/falling.gif" alt="Falling into darkness">
+    </div>
+
+    <script>
+        function makeChoice(choice) {
+            let story = document.getElementById('story');
+            let buttons = document.getElementById('choiceButtons'); 
+            let retryButton = document.getElementById('retryButton');
+            let deathGif = document.getElementById('deathGif');
+
+            // Hide choice buttons immediately
+            buttons.style.display = 'none';
+
+            if (choice === 'yes') {
+                story.innerHTML = "You run toward the light, but the floor vanishes beneath you. You fall endlessly.";
+            } else {
+                story.innerHTML = "You stay still. The darkness consumes you. A whisper says: 'You chose wisely, yet... you are no more.'";
+            }
+
+            // After 3 seconds, update text and show retry button + GIF
+            setTimeout(() => {
+                story.innerHTML = "You died.";
+                retryButton.style.display = 'block'; // Show "Try Again" button
+                deathGif.style.display = 'block'; // Show falling GIF
+                deathGif.style.opacity = '1'; // Fade it in
+            }, 3000);
+        }
+
+        function restartGame() {
+            // Reset game state
+            document.getElementById('story').innerHTML = 'You wake up in a dark, secluded forest. A voice whispers: "Do you want to live?"';
+            document.getElementById('choiceButtons').style.display = 'flex'; // Show choice buttons
+            document.getElementById('retryButton').style.display = 'none'; // Hide "Try Again" button
+            
+            // Hide falling GIF
+            let deathGif = document.getElementById('deathGif');
+            deathGif.style.display = 'none';
+            deathGif.style.opacity = '0';
+        }
+    </script>
+</body>
+</html>
