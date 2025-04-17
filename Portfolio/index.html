@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dale de Guzman | DMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="text-gray-900">
+
+  
+  <header class="text-center py-10">
+    <h1 class="text-5xl font-bold mb-2">Dale de Guzman</h1>
+    <p class="text-xl text-gray-700 mb-4">Digital Media Art</p>
+    <a href="#about" class="inline-block bg-white text-green-700 px-6 py-2 rounded-full font-semibold shadow-md hover:scale-105 transition">
+      About Me
+    </a>
+  </header>
+
+  
+  <main class="px-6 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="art-block">
+      <img src="images/shochiro1.jpg" alt="Shochiro" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">Shochiro – Digital, 2023</p>
+    </div>
+    <div class="art-block">
+      <img src="images/shochiro2.jpg" alt="Shochiro Back" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">Shochiro Back – Digital, 2023</p>
+    </div>
+    <div class="art-block">
+      <img src="images/willy3.jpg" alt="Free Willy" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">Free Willy – Digital, 2024</p>
+    </div>
+    <div class="art-block">
+      <img src="images/jhl4.jpg" alt="The Grandson Of The Wind" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">The Grandson Of The Wind – Digital, 2024</p>
+    </div>
+    <div class="art-block">
+      <img src="images/bobble1.jpg" alt="Fobblehead" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">Fobblehead – 3D Design, 2024</p>
+    </div>
+    <div class="art-block">
+      <img src="images/bobble2.jpg" alt="Artwork 6" class="art-card" onclick="openLightbox(this.src)" />
+      <p class="caption">SCRATCH – 3D Design, 2024</p>
+    </div>
+  </main>
+
+  
+  <section id="about" class="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 py-16 px-6 shadow-inner">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+      <img src="images/deydey.jpg" alt="Your Photo" class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-green-400" />
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Dale de Guzman</h2>
+        <p class="text-lg leading-relaxed">
+          | EDUCATION |
+          Associate of Art in Digital Media, San Joaquin Delta College, Stockton CA. 2022.
+          Bachelor of Fine Arts in Digital Media Arts, San Jose State University, San Jose CA. 2022-Present.
+          <div>| BIOGRAPHY |
+            Dale de Guzman is a digital artist based in Tracy, California. He is a multifaceted artist who specializes in video and started producing video artwork during his time in high school. Dale created short-form video edits in high school, prompting him to pursue a career in digital media art. After receiving his Associate of Arts degree in Digital Media at San Joaquin Delta College in Stockton, he transferred to San Jose State University during the Fall 2022 semester. He is pursuing his Bachelor of Fine Arts degree in Digital Media Arts.</div>
+          | ARTIST STATEMENT |
+          Dale specializes in videography in the digital art world. His practice is deeply rooted in storytelling and visual communication as he strives to capture the essence of moments, narratives, and emotions. Dale’s artworks are an opportunity for him to connect with his audience and explore the intertwining of creativity and personal expression as he aims to push the limits of visual storytelling. Dale’s artwork serves as a reflection of his journey throughout life as well as the digital art world. He incorporates the complexities of growth within his artworks to showcase a world of authenticity.
+          I believe art should make you feel something — even if it's just a smile or a shiver.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed artwork" />
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
