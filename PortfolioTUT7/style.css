@@ -1,0 +1,56 @@
+
+body {
+    background-image: url('images/paper-texture.png');
+    background-color: #f7f7f7;
+    background-repeat: repeat;
+    background-size: auto;
+  }
+  
+  
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .art-card {
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  }
+  
+  .art-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .art-block {
+    text-align: center;
+  }
+  
+  .caption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  
