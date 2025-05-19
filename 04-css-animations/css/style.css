@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #fff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+main {
+  margin-top: 60px;
+  text-align: center;
+}
+
+@keyframes stretching {
+  0% {
+    width: 100px;
+    letter-spacing: normal;
+    transform: scale(1);
+  }
+  100% {
+    width: 100%;
+    letter-spacing: 5px;
+    transform: scale(1.05);
+  }
+}
+
+.button {
+  animation-name: stretching;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-box {
+  animation-name: rotate;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(0, 128, 0);
+  color: white;
+  border-radius: 10px;
+}
+
+@keyframes colorFlash {
+  0% {
+    background-color: rgb(0, 0, 0);
+  }
+  33% {
+    background-color: rgb(255, 165, 0);
+  }
+  66% {
+    background-color: rgb(255, 0, 0);
+  }
+  100% {
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+.color-box {
+  animation-name: colorFlash;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin: 20px auto;
+  padding: 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  height: 40px;
+  width: 455px;
+  border-radius: 22px;
+  box-shadow: 4px 4px 0 #000;
+  background: white;
+  white-space: nowrap;
+}
+
+.marquee--inner {
+  animation-name: marquee;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: block;
+  width: 200%;
+  position: absolute;
+}
+
+.marquee--inner:hover {
+  animation-play-state: paused;
+  color: red;
+}
+
+span {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+}
