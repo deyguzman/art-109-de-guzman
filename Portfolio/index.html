@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dale de Guzman | DMA</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -17,73 +17,149 @@
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
     }
+    .art-card, video {
+      cursor: pointer;
+    }
+    .caption {
+      margin-top: 0.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #4b5563; /* text-gray-600 */
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
   </style>
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 bg-gray-50">
 
-  
+  <!-- Header -->
   <header class="text-center py-10">
     <h1 class="text-5xl font-bold mb-2">Dale de Guzman</h1>
-    <p class="text-xl text-gray-700 mb-4">Digital Media Art</p>
+    <p class="text-xl text-gray-700 mb-6">Digital Media Art</p>
+    <div class="flex justify-center space-x-4 mb-4">
+      <button onclick="showAll()" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">All Work</button>
+      <button onclick="showImages()" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">Graphic Design and 3D Modeling</button>
+      <button onclick="showVideos()" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">Video</button>
+    </div>
     <a href="#about" class="inline-block bg-white text-green-700 px-6 py-2 rounded-full font-semibold shadow-md hover:scale-105 transition">
       About Me
     </a>
   </header>
 
-  
+  <!-- Portfolio Grid -->
   <main class="px-6 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div class="art-block">
-      <img src="images/shochiro1.jpg" alt="Shochiro" class="art-card" onclick="openLightbox(this.src)" />
-      <p class="caption">Shochiro – Digital, 2023</p>
+
+    <!-- Image Artworks -->
+    <div class="art-block image-art">
+      <img src="images/shochiro1.jpg" alt="Shochiro" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
+      <p class="caption">Shochiro – Graphic Design, 2023</p>
     </div>
-    <div class="art-block">
-      <img src="images/shochiro2.jpg" alt="Shochiro Back" class="art-card" onclick="openLightbox(this.src)" />
-      <p class="caption">Shochiro Back – Digital, 2023</p>
+    <div class="art-block image-art">
+      <img src="images/jhl4.jpg" alt="Shochiro Back" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
+      <p class="caption">The Grandson of the Wind – Graphic Design, 2024</p>
     </div>
-    <div class="art-block">
-      <img src="images/willy3.jpg" alt="Free Willy" class="art-card" onclick="openLightbox(this.src)" />
-      <p class="caption">Free Willy – Digital, 2024</p>
+    <div class="art-block image-art">
+      <img src="images/willy3.jpg" alt="Free Willy" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
+      <p class="caption">Free Willy – Graphic Design, 2024</p>
     </div>
-    <div class="art-block">
-      <img src="images/jhl4.jpg" alt="The Grandson Of The Wind" class="art-card" onclick="openLightbox(this.src)" />
-      <p class="caption">The Grandson Of The Wind – Digital, 2024</p>
+    <div class="art-block image-art">
+      <img src="images/shochiro2.jpg" alt="The Grandson Of The Wind" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
+      <p class="caption">Shochiro Back – Graphic Design, 2023</p>
     </div>
-    <div class="art-block">
-      <img src="images/bobble1.jpg" alt="Fobblehead" class="art-card" onclick="openLightbox(this.src)" />
+    <div class="art-block image-art">
+      <img src="images/bobble1.jpg" alt="Fobblehead" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
       <p class="caption">Fobblehead – 3D Design, 2024</p>
     </div>
-    <div class="art-block">
-      <img src="images/bobble2.jpg" alt="Artwork 6" class="art-card" onclick="openLightbox(this.src)" />
+    <div class="art-block image-art">
+      <img src="images/bobble2.jpg" alt="SCRATCH" class="art-card rounded-lg shadow-md" onclick="openLightbox(this.src)" />
       <p class="caption">SCRATCH – 3D Design, 2024</p>
     </div>
+
+    <!-- Video Artworks -->
+    <div class="art-block video-art">
+      <video controls poster="images/RECOthumb.jpg" class="art-card rounded-lg shadow-md">
+        <source src="videos/RECO.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">RECOLLECTION – Video, 2025</p>
+    </div>
+    <div class="art-block video-art">
+      <video controls poster="images/onethumb.jpg" class="art-card rounded-lg shadow-md">
+        <source src="videos/ON_ONE1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">ON ONE – Video, 2023</p>
+    </div>
+    <div class="art-block video-art">
+      <video controls poster="images/TFATBthumb.jpg" class="art-card rounded-lg shadow-md">
+        <source src="videos/TFATB.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">The Fighter and the Bees – Video, 2021</p>
+    </div>
+
   </main>
 
-  
-  <section id="about" class="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 py-16 px-6 shadow-inner">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-      <img src="images/deydey.jpg" alt="Your Photo" class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-green-400" />
+  <!-- About Section -->
+  <section id="about" class="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 py-16 px-6 shadow-inner max-w-4xl mx-auto">
+    <div class="flex flex-col md:flex-row items-start gap-8">
+      <img src="images/deydey.jpg" alt="Dale" class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-green-400" />
       <div>
         <h2 class="text-3xl font-bold mb-4">Dale de Guzman</h2>
-        <p class="text-lg leading-relaxed">
-          | EDUCATION |
-          Associate of Art in Digital Media, San Joaquin Delta College, Stockton CA. 2022.
-          Bachelor of Fine Arts in Digital Media Arts, San Jose State University, San Jose CA. 2022-Present.
-          <div>| BIOGRAPHY |
-            Dale de Guzman is a digital artist based in Tracy, California. He is a multifaceted artist who specializes in video and started producing video artwork during his time in high school. Dale created short-form video edits in high school, prompting him to pursue a career in digital media art. After receiving his Associate of Arts degree in Digital Media at San Joaquin Delta College in Stockton, he transferred to San Jose State University during the Fall 2022 semester. He is pursuing his Bachelor of Fine Arts degree in Digital Media Arts.</div>
-          | ARTIST STATEMENT |
-          Dale specializes in videography in the digital art world. His practice is deeply rooted in storytelling and visual communication as he strives to capture the essence of moments, narratives, and emotions. Dale’s artworks are an opportunity for him to connect with his audience and explore the intertwining of creativity and personal expression as he aims to push the limits of visual storytelling. Dale’s artwork serves as a reflection of his journey throughout life as well as the digital art world. He incorporates the complexities of growth within his artworks to showcase a world of authenticity.
-          I believe art should make you feel something — even if it's just a smile or a shiver.
+        <p class="text-lg leading-relaxed mb-6">
+          <strong>| EDUCATION |</strong><br />
+          Associate of Art in Digital Media, San Joaquin Delta College, Stockton CA. 2022.<br />
+          Bachelor of Fine Arts in Digital Media Art, San Jose State University, San Jose CA. 2025.<br /><br />
+
+          <strong>| BIOGRAPHY |</strong><br />
+          Dale de Guzman is a digital artist based in Tracy, California. He began creating short-form video edits during high school, which sparked a lasting passion for digital media and storytelling. After earning his Associate of Arts degree in Digital Media from San Joaquin Delta College, he transferred to San Jose State University to further his education. In 2025, Dale graduated with a Bachelor of Fine Arts in Digital Media Art from SJSU, where he deepened his expertise in video production, digital illustration, and multimedia design. His academic journey has shaped a creative practice that blends technical skill with narrative-driven content.<br /><br />
+
+          <strong>| ARTIST STATEMENT |</strong><br />
+          Rooted in storytelling and visual communication, Dale’s work blends creativity, emotion, and intention to create immersive digital experiences. His video and digital artworks explore themes of identity, memory, and transformation, often drawing from personal experiences and cultural observations. Through a careful balance of composition, pacing, and mood, Dale invites viewers into introspective spaces that speak to both individual and collective journeys. His creative process is driven by a desire to connect — to make others feel, reflect, and see the world through a more nuanced lens. By embracing vulnerability and experimentation, Dale continues to push the boundaries of visual storytelling, crafting work that is both deeply personal and widely resonant.<br /><br />
+
+          <strong>| CONTACT |</strong><br />
+          Contact me at <a href="mailto:dalemdeguzman@gmail.com" class="text-green-700 underline hover:text-green-900">dalemdeguzman@gmail.com</a> for inquiries about collaborations, freelance work, commissions, or showcasing my digital media projects.
         </p>
+
+        <!-- Optional Contact Form -->
+        <form action="mailto:dalemdeguzman@gmail.com" method="post" enctype="text/plain" class="space-y-4 max-w-md">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 border rounded shadow-sm" />
+          <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 border rounded shadow-sm" />
+          <textarea name="message" placeholder="Your Message" rows="4" required class="w-full px-4 py-2 border rounded shadow-sm"></textarea>
+          <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Send</button>
+        </form>
       </div>
     </div>
   </section>
 
-  
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <!-- Lightbox -->
+  <div id="lightbox" class="flex" onclick="closeLightbox()" style="display:none;">
     <img id="lightbox-img" src="" alt="Zoomed artwork" />
   </div>
 
+  <!-- Footer Contact -->
+  <footer class="bg-green-600 text-white py-6 text-center mt-12">
+    <p class="text-lg">
+      Interested in working together? Email me at 
+      <a href="mailto:dalemdeguzman@gmail.com" class="underline hover:text-green-300">dalemdeguzman@gmail.com</a>
+    </p>
+  </footer>
+
   <script>
+    // Lightbox open/close
     function openLightbox(src) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').style.display = 'flex';
@@ -91,6 +167,22 @@
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
+
+    // Filter functions
+    function showAll() {
+      document.querySelectorAll('.image-art, .video-art').forEach(el => el.style.display = 'block');
+    }
+    function showImages() {
+      document.querySelectorAll('.image-art').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('.video-art').forEach(el => el.style.display = 'none');
+    }
+    function showVideos() {
+      document.querySelectorAll('.video-art').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('.image-art').forEach(el => el.style.display = 'none');
+    }
+
+    // Show all on page load
+    showAll();
   </script>
 </body>
 </html>
